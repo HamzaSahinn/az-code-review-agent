@@ -1,0 +1,68 @@
+## .NET
+bin/
+obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+.vs/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+bld/
+[Ll]og/
+[Ll]ogs/
+
+## NuGet
+*.nupkg
+**/[Pp]ackages/*
+!**/[Pp]ackages/build/
+
+## Build results
+[Dd]ebug/
+[Rr]elease/
+*_i.c
+*_p.c
+*_h.h
+*.ilk
+*.meta
+*.obj
+*.iobj
+*.pch
+*.pdb
+*.ipdb
+*.pgc
+*.pgd
+*.rsp
+*.sbr
+*.tlb
+*.tli
+*.tlh
+*.tmp
+*.tmp_proj
+*_wpftmp.csproj
+*.vspscc
+*.vssscc
+.builds
+*.pidb
+*.svclog
+*.scc
+
+## User secrets
+secrets.json
+
+## Environment
+.env
+*.env.local
+
+## Docker
+docker-compose.override.yml
+
+## IDE
+.idea/
+*.swp
+*~
+
+## Sisyphus
+.sisyphus/

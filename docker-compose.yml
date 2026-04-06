@@ -1,0 +1,47 @@
+services:
+  code-review-agent:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      # Azure DevOps Server connection
+      AzureDevOps__ServerUrl: "https://devops.contoso.com"
+      AzureDevOps__Collection: "DefaultCollection"
+      AzureDevOps__Pat: "${AZDO_PAT}"
+      AzureDevOps__AgentUserId: "${AZDO_AGENT_USER_ID}"
+      AzureDevOps__AgentDisplayName: "CodeReviewAgent"
+
+      # AI Provider: "AzureOpenAI" or "Ollama"
+      Ai__Provider: "AzureOpenAI"
+
+      # Azure OpenAI settings (used when Provider=AzureOpenAI)
+      Ai__AzureOpenAi__Endpoint: "${AZURE_OPENAI_ENDPOINT}"
+      Ai__AzureOpenAi__DeploymentName: "gpt-4o"
+      Ai__AzureOpenAi__ApiKey: "${AZURE_OPENAI_API_KEY}"
+
+      # Ollama / vLLM settings (used when Provider=Ollama)
+      # Ai__Ollama__Endpoint: "http://ollama:11434"
+      # Ai__Ollama__ModelId: "llama3.1"
+
+      # Webhook Basic Auth
+      WebhookAuth__Username: "webhook"
+      WebhookAuth__Password: "${WEBHOOK_PASSWORD}"
+
+      # Review settings
+      Review__MaxFilesPerReview: "50"
+      Review__MaxFileSizeBytes: "102400"
+    restart: unless-stopped
+
+  # Uncomment to use local Ollama as AI provider
+  # ollama:
+  #   image: ollama/ollama:latest
+  #   ports:
+  #     - "11434:11434"
+  #   volumes:
+  #     - ollama_data:/root/.ollama
+  #   restart: unless-stopped
+
+# volumes:
+#   ollama_data:

@@ -1,0 +1,12 @@
+Based on the following code review findings, generate an overall pull request summary.
+
+Return a JSON object with:
+- "overallAssessment": brief overall assessment (1-2 sentences)
+- "score": quality score 1-100
+- "totalFindings": total number of findings
+- "criticalCount": number of critical findings
+- "warningCount": number of warnings
+- "suggestionCount": number of suggestions
+- "summary": detailed markdown summary with sections for critical issues, warnings, and suggestions
+
+Return ONLY valid JSON, no markdown fences.
