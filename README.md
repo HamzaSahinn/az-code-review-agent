@@ -1,3 +1,4 @@
+This is not a licance file
 # Azure DevOps Code Review Agent
 
 An intelligent, AI-powered pull request reviewer for Azure DevOps Server (on-premise) and Services. The agent automates code reviews, provides line-level feedback, and handles conversational queries within PR threads using Semantic Kernel.
